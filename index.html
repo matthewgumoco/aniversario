@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8e9e8" />
+    <title>Un año de nosotros | Gerardo & Azu</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap");
+      :root {
+        --rose: #b85e70;
+        --rose-dark: #8f4054;
+        --blush: #f8e9e8;
+        --cream: #fffaf5;
+        --ink: #49383b;
+        --muted: #8b7779;
+        --line: #ead8d6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+      }
+      button {
+        font: inherit;
+      }
+      .wrap {
+        width: min(100% - 32px, 680px);
+        margin: auto;
+      }
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 48px 18px;
+        background:
+          radial-gradient(circle at 15% 15%, #fff 0, transparent 28%),
+          linear-gradient(145deg, #f8e9e8, #f5dfdc 55%, #fff8f1);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero:before,
+      .hero:after {
+        content: "♡";
+        position: absolute;
+        color: #ffffff80;
+        font-size: 150px;
+        transform: rotate(-18deg);
+      }
+      .hero:before {
+        left: -25px;
+        top: 5%;
+      }
+      .hero:after {
+        right: -25px;
+        bottom: 2%;
+        font-size: 190px;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 440px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        font-size: 10px;
+        color: var(--rose-dark);
+        font-weight: 700;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+      }
+      h1 {
+        font-size: clamp(42px, 12vw, 66px);
+        line-height: 1.04;
+        margin: 17px 0 12px;
+      }
+      .subtitle {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+      .envelope {
+        width: 190px;
+        height: 132px;
+        margin: 35px auto 28px;
+        position: relative;
+        cursor: pointer;
+        filter: drop-shadow(0 12px 18px #8f405422);
+        border: 0;
+        background: transparent;
+      }
+      .env-base {
+        position: absolute;
+        inset: 0;
+        background: #d98f9c;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .env-base:before,
+      .env-base:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+      .env-base:before {
+        left: 0;
+        border-width: 66px 95px 0 0;
+        border-color: transparent #c87989 transparent transparent;
+      }
+      .env-base:after {
+        right: 0;
+        border-width: 66px 0 0 95px;
+        border-color: transparent transparent transparent #c87989;
+      }
+      .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 95px solid transparent;
+        border-right: 95px solid transparent;
+        border-top: 78px solid #e8aab2;
+        transform-origin: top;
+        transition: transform 0.65s;
+        z-index: 3;
+      }
+      .seal {
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+        top: 48px;
+        transform: translateX(-50%);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #fff3ed;
+        color: var(--rose-dark);
+        display: grid;
+        place-items: center;
+        font-size: 19px;
+      }
+      .letter-peek {
+        position: absolute;
+        z-index: 2;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        height: 95px;
+        background: #fffaf5;
+        border-radius: 4px;
+        transition: transform 0.7s;
+        display: grid;
+        place-items: center;
+        color: var(--rose);
+        font-family: "Playfair Display";
+        font-style: italic;
+      }
+      .envelope.open .flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+      }
+      .envelope.open .letter-peek {
+        transform: translateY(-58px);
+      }
+      .primary,
+      .soft {
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 23px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+        transition: 0.2s;
+      }
+      .primary {
+        background: var(--rose);
+        color: white;
+        box-shadow: 0 8px 20px #b85e7033;
+      }
+      .primary:active,
+      .soft:active {
+        transform: scale(0.97);
+      }
+      .soft {
+        background: #f4e4e2;
+        color: var(--rose-dark);
+      }
+      .hint {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 13px;
+      }
+      section {
+        padding: 70px 0;
+      }
+      .section-head {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .section-head h2 {
+        font-size: 35px;
+        margin: 9px 0;
+      }
+      .section-head p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0 auto;
+        max-width: 420px;
+      }
+      .intro-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 12px 35px #6c39400a;
+      }
+      .intro-card p {
+        font-family: "Playfair Display";
+        font-size: 21px;
+        line-height: 1.55;
+        margin: 0;
+      }
+      .timeline {
+        position: relative;
+        margin: 0 0 0 10px;
+        padding-left: 27px;
+        border-left: 1px solid #d9a6ad;
+      }
+      .moment {
+        position: relative;
+        padding: 0 0 30px;
+      }
+      .moment:last-child {
+        padding-bottom: 0;
+      }
+      .moment:before {
+        content: "♡";
+        position: absolute;
+        left: -37px;
+        top: 0;
+        width: 19px;
+        height: 19px;
+        background: var(--cream);
+        color: var(--rose);
+        font-size: 17px;
+      }
+      .moment .date {
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--rose);
+        font-weight: 700;
+      }
+      .moment h3 {
+        font-size: 22px;
+        margin: 6px 0;
+      }
+      .moment p {
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--muted);
+        margin: 0;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+      }
+      .photo {
+        background: white;
+        padding: 8px 8px 27px;
+        border-radius: 5px;
+        box-shadow: 0 7px 20px #50343a12;
+        transform: rotate(var(--tilt));
+        cursor: pointer;
+      }
+      .photo img {
+        width: 100%;
+        aspect-ratio: 1/1.12;
+        object-fit: cover;
+        display: block;
+        background: #f1e2df;
+      }
+      .photo figcaption {
+        font-family: "Playfair Display";
+        font-style: italic;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 9px;
+        color: #775d60;
+      }
+      .photo:nth-child(3n) {
+        --tilt: 1.8deg;
+      }
+      .photo:nth-child(2n) {
+        --tilt: -1.5deg;
+      }
+      .photo:nth-child(1) {
+        --tilt: -2deg;
+      }
+      .letter-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 27px 23px;
+        box-shadow: 0 12px 35px #6c39400a;
+        position: relative;
+      }
+      .letter-card:before {
+        content: "❝";
+        font-family: Georgia;
+        color: #e7c4c6;
+        font-size: 60px;
+        position: absolute;
+        top: 5px;
+        left: 18px;
+      }
+      .letter-text {
+        font-family: "Playfair Display";
+        font-size: 17px;
+        line-height: 1.85;
+        white-space: pre-line;
+        padding-top: 32px;
+      }
+      .signature {
+        font-family: "Playfair Display";
+        font-style: italic;
+        color: var(--rose-dark);
+        font-size: 24px;
+        text-align: right;
+        margin-top: 24px;
+      }
+      .promises {
+        display: grid;
+        gap: 12px;
+      }
+      .promise {
+        display: flex;
+        gap: 13px;
+        align-items: flex-start;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        padding: 16px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .promise span {
+        color: var(--rose);
+        font-size: 18px;
+      }
+      .final {
+        background: linear-gradient(145deg, #f5dfdc, #f9eeea);
+        text-align: center;
+        padding: 65px 20px 75px;
+      }
+      .final h2 {
+        font-size: 38px;
+        margin: 12px 0;
+      }
+      .final p {
+        max-width: 420px;
+        margin: 0 auto 22px;
+        color: #775f62;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #a18c8e;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+      .music {
+        position: fixed;
+        right: 14px;
+        bottom: 15px;
+        z-index: 10;
+        border: 1px solid #e8c9ca;
+        background: #fffaf2;
+        color: var(--rose-dark);
+        border-radius: 999px;
+        padding: 11px 14px;
+        box-shadow: 0 5px 18px #4a26301c;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #211619e8;
+        z-index: 20;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal.show {
+        display: flex;
+      }
+      .modal img {
+        max-width: 100%;
+        max-height: 82svh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        color: #fff;
+        background: transparent;
+        border: 0;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .hidden-content {
+        display: none;
+      }
+      .hidden-content.visible {
+        display: block;
+        animation: fade 0.8s ease;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .counter-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px 18px;
+        text-align: center;
+        box-shadow: 0 12px 35px #6c39400a;
+      }
+      .counter-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 7px;
+        margin-top: 18px;
+      }
+      .counter-unit {
+        background: #fbefed;
+        border-radius: 13px;
+        padding: 13px 4px;
+      }
+      .counter-unit strong {
+        display: block;
+        font-family: "Playfair Display";
+        font-size: clamp(22px, 7vw, 34px);
+        font-weight: 500;
+        color: var(--rose-dark);
+        font-variant-numeric: tabular-nums;
+      }
+      .counter-unit small {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .carousel-shell {
+        position: relative;
+        overflow: hidden;
+      }
+      .memory-track {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding: 8px 3px 18px;
+      }
+      .memory-track::-webkit-scrollbar {
+        display: none;
+      }
+      .memory-slide {
+        flex: 0 0 78%;
+        max-width: 320px;
+        scroll-snap-align: center;
+        background: #fff;
+        padding: 9px 9px 17px;
+        border-radius: 8px;
+        box-shadow: 0 8px 22px #50343a16;
+        transform: rotate(-1deg);
+      }
+      .memory-slide:nth-child(even) {
+        transform: rotate(1.2deg);
+      }
+      .memory-slide img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        display: block;
+        background: #f1e2df;
+      }
+      .memory-slide h3 {
+        font-size: 19px;
+        text-align: center;
+        margin: 12px 0 3px;
+      }
+      .memory-slide p {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        margin: 0;
+      }
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 5px;
+      }
+      .carousel-controls button {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        color: var(--rose-dark);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .carousel-dots span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #e6c9c9;
+      }
+      .carousel-dots span.active {
+        background: var(--rose);
+        width: 17px;
+        border-radius: 8px;
+      }
+      .heart-burst {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 30;
+      }
+      .heart-burst span {
+        position: absolute;
+        bottom: -30px;
+        font-size: 20px;
+        animation: float-heart 3.8s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes float-heart {
+        0% {
+          transform: translateY(0) rotate(0) scale(0.7);
+          opacity: 0;
+        }
+        12% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-110svh) rotate(35deg) scale(1.4);
+          opacity: 0;
+        }
+      }
+      .final .primary {
+        margin-top: 5px;
+      }
+      .surprise-note {
+        display: none;
+        margin: 20px auto 0;
+        max-width: 430px;
+        background: #fffaf5;
+        border: 1px solid #e8c9ca;
+        border-radius: 18px;
+        padding: 20px;
+        font-family: "Playfair Display";
+        font-size: 20px;
+        line-height: 1.6;
+        color: var(--rose-dark);
+        animation: fade 0.7s ease;
+      }
+      .surprise-note.show {
+        display: block;
+      }
+
+      @media (min-width: 600px) {
+        .gallery {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .hero {
+          min-height: 760px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *:before,
+        *:after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CAMBIA los textos y nombres dentro de este archivo para personalizarlo. -->
+    <header class="hero" id="inicio">
+      <div class="hero-inner">
+        <div class="eyebrow">Un recuerdo para toda la vida</div>
+        <h1>Un año de<br /><em>nosotros</em></h1>
+        <p class="subtitle">
+          Para mi Azu bonita.<br />Hay historias que se convierten en nuestro
+          lugar favorito.
+        </p>
+        <button class="envelope" id="envelope" aria-label="Abrir la carta">
+          <span class="letter-peek">Para mi amor ♡</span
+          ><span class="env-base"></span><span class="flap"></span
+          ><span class="seal">❤️</span>
+        </button>
+        <br>
+        <button class="primary" id="openStory">Abrir nuestro recuerdo</button>
+        <div class="hint">Toca el sobre para comenzar</div>
+      </div>
+    </header>
+
+    <main id="story" class="hidden-content">
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Capítulo uno</div>
+          <h2>Todo comenzó contigo</h2>
+          <p>
+            Un año de momentos, aprendizajes, sonrisas y razones para seguir
+            eligiéndonos.
+          </p>
+        </div>
+        <div class="intro-card">
+          <p>
+            “De todas las casualidades bonitas que me ha regalado la vida, tú
+            eres mi favorita.”
+          </p>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Desde aquel día</div>
+          <h2>El tiempo a tu lado</h2>
+          <p>
+            Desde el 11 de diciembre de 2025, cada día ha sumado algo a nuestra
+            historia.
+          </p>
+        </div>
+        <div class="counter-card">
+          <div class="eyebrow">11 · 12 · 2025</div>
+          <p
+            style="
+              font-family: &quot;Playfair Display&quot;;
+              font-size: 19px;
+              margin: 8px 0 0;
+            "
+          >
+            Llevamos compartiendo
+          </p>
+          <div class="counter-grid" aria-live="polite">
+            <div class="counter-unit">
+              <strong id="days">0</strong><small>Días</small>
+            </div>
+            <div class="counter-unit">
+              <strong id="hours">0</strong><small>Horas</small>
+            </div>
+            <div class="counter-unit">
+              <strong id="minutes">0</strong><small>Minutos</small>
+            </div>
+            <div class="counter-unit">
+              <strong id="seconds">0</strong><small>Segundos</small>
+            </div>
+          </div>
+          <p class="hint">
+            Y todavía nos quedan muchísimos momentos por vivir. ♡
+          </p>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Nuestros capítulos</div>
+          <h2>Así empezó nuestra historia</h2>
+          <p>Cada recuerdo tiene un lugar especial en mi corazón.</p>
+        </div>
+        <div class="timeline">
+          <article class="moment">
+            <div class="date">El comienzo</div>
+            <h3>Cuando todo empezó</h3>
+            <p>
+              Desde ese primer dia que comenzamos a platicar y acordamos esa
+              primera salida a comer a Chilli's cuando todo era nervios al
+              empezar a conocernos sin saber hasta donde llegariamos juntos 🥰.
+            </p>
+          </article>
+          <article class="moment">
+            <div class="date">Un día inolvidable</div>
+            <h3>¿Quieres ser mi novia?</h3>
+            <p>
+              Ese día frente al reloj y con aquellos adornos de navidad, comenzó
+              oficialmente nuestra aventura. Un recuerdo que siempre voy a
+              guardar dentro de mi corazon 😍.
+            </p>
+          </article>
+          <article class="moment">
+            <div class="date">Nuestros días</div>
+            <h3>Pequeños momentos, grandes recuerdos</h3>
+            <p>
+              Las salidas, las pláticas, las risas, los abrazos y hasta esos
+              días complicados en los que aprendimos a entendernos mejor.
+            </p>
+          </article>
+          <article class="moment">
+            <div class="date">Hoy</div>
+            <h3>Un año eligiéndonos</h3>
+            <p>
+              Y todavía tengo muchos lugares por conocer contigo, sueños por
+              cumplir y muchísimo amor por compartir.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Un viaje por nuestros recuerdos</div>
+          <h2>Momentos que guardo</h2>
+          <p>
+            Desliza para recorrer algunos de nuestros instantes favoritos.
+            Puedes reemplazar las fotos y los textos por sus recuerdos.
+          </p>
+        </div>
+        <div class="carousel-shell">
+          <div class="memory-track" id="memoryTrack">
+            <article class="memory-slide">
+              <img
+                src="fotos/momento1.jpg"
+                alt="Momento memorable 1"
+                onerror="
+                  this.src =
+                    'https://placehold.co/700x850/f1dedd/8f5964?text=Primer+recuerdo'
+                "
+              />
+              <h3>El comienzo de todo</h3>
+              <p>Ese día que siempre voy a llevar conmigo.</p>
+            </article>
+            <article class="memory-slide">
+              <img
+                src="fotos/momento2.jpg"
+                alt="Momento memorable 2"
+                onerror="
+                  this.src =
+                    'https://placehold.co/700x850/f4e7df/8f5964?text=Una+aventura'
+                "
+              />
+              <h3>Nuestras aventuras</h3>
+              <p>Cualquier lugar es especial si estoy contigo.</p>
+            </article>
+            <article class="memory-slide">
+              <img
+                src="fotos/momento3.jpg"
+                alt="Momento memorable 3"
+                onerror="
+                  this.src =
+                    'https://placehold.co/700x850/f1dedd/8f5964?text=Una+sonrisa'
+                "
+              />
+              <h3>Tu sonrisa favorita</h3>
+              <p>De esas que hacen bonito cualquier día.</p>
+            </article>
+            <article class="memory-slide">
+              <img
+                src="fotos/momento4.jpg"
+                alt="Momento memorable 4"
+                onerror="
+                  this.src =
+                    'https://placehold.co/700x850/f4e7df/8f5964?text=Un+dia+especial'
+                "
+              />
+              <h3>Un día para recordar</h3>
+              <p>Un pedacito de felicidad que guardo en fotos.</p>
+            </article>
+            <article class="memory-slide">
+              <img
+                src="fotos/momento5.jpg"
+                alt="Momento memorable 5"
+                onerror="
+                  this.src =
+                    'https://placehold.co/700x850/f1dedd/8f5964?text=Nuestro+momento'
+                "
+              />
+              <h3>Así se siente estar contigo</h3>
+              <p>Mi compañía favorita, en los días grandes y pequeños.</p>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" id="memoryPrev" aria-label="Foto anterior">
+              ‹
+            </button>
+            <div
+              class="carousel-dots"
+              id="carouselDots"
+              aria-hidden="true"
+            ></div>
+            <button type="button" id="memoryNext" aria-label="Foto siguiente">
+              ›
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Nuestros instantes</div>
+          <h2>Un álbum de nosotros</h2>
+          <p>
+            Presiona una fotografía para verla más grande. Reemplaza estas
+            imágenes por sus fotos favoritas.
+          </p>
+        </div>
+        <div class="gallery">
+          <figure class="photo">
+            <img
+              src="fotos/foto1.jpg"
+              alt="Nuestro recuerdo 1"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f1dedd/8f5964?text=Nuestra+foto+1'
+              "
+            />
+            <figcaption>Mi lugar favorito</figcaption>
+          </figure>
+          <figure class="photo">
+            <img
+              src="fotos/foto2.jpg"
+              alt="Nuestro recuerdo 2"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f4e7df/8f5964?text=Nuestra+foto+2'
+              "
+            />
+            <figcaption>Un día especial</figcaption>
+          </figure>
+          <figure class="photo">
+            <img
+              src="fotos/foto3.jpg"
+              alt="Nuestro recuerdo 3"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f1dedd/8f5964?text=Nuestra+foto+3'
+              "
+            />
+            <figcaption>Tu sonrisa</figcaption>
+          </figure>
+          <figure class="photo">
+            <img
+              src="fotos/foto4.jpg"
+              alt="Nuestro recuerdo 4"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f4e7df/8f5964?text=Nuestra+foto+4'
+              "
+            />
+            <figcaption>Juntos</figcaption>
+          </figure>
+          <figure class="photo">
+            <img
+              src="fotos/foto5.jpg"
+              alt="Nuestro recuerdo 5"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f1dedd/8f5964?text=Nuestra+foto+5'
+              "
+            />
+            <figcaption>De mis días favoritos</figcaption>
+          </figure>
+          <figure class="photo">
+            <img
+              src="fotos/foto6.jpg"
+              alt="Nuestro recuerdo 6"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x700/f4e7df/8f5964?text=Nuestra+foto+6'
+              "
+            />
+            <figcaption>Y los que vienen</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Con todo mi corazón</div>
+          <h2>Una carta para ti</h2>
+        </div>
+        <div class="letter-card">
+          <div class="letter-text">
+            Mi Azu bonita: Hoy celebramos un año de esta historia tan nuestra y
+            no puedo evitar sentirme agradecido por cada momento que hemos
+            compartido. Gracias por las sonrisas, los abrazos, las aventuras y
+            también por los días que nos han enseñado a conocernos y
+            comprendernos mejor. Quiero que sepas que no espero que todo sea
+            perfecto. Quiero seguir aprendiendo contigo, escucharte, cuidarte y
+            construir una relación en la que los dos podamos ser nosotros
+            mismos. Quiero acompañarte en tus sueños, celebrar tus logros y
+            tomarte de la mano cuando las cosas no sean tan sencillas. Si algo
+            deseo es que este primer año sea solamente el comienzo de muchísimas
+            experiencias más. Todavía nos quedan tantos lugares por conocer,
+            tantas fotografías por tomar y tantos sueños por cumplir. Gracias
+            por ser parte de mi vida, mi amor. Te amo muchísimo y te sigo
+            eligiendo. ❤️
+          </div>
+          <div class="signature">Con todo mi amor,<br />Gerardo ♡</div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Lo que viene</div>
+          <h2>Mis promesas para nosotros</h2>
+          <p>
+            No promesas de una historia perfecta, sino de un amor que se cuida
+            todos los días.
+          </p>
+        </div>
+        <div class="promises">
+          <div class="promise">
+            <span>♡</span>
+            <div>
+              Escucharte con atención y hablar contigo incluso cuando algo sea
+              difícil.
+            </div>
+          </div>
+          <div class="promise">
+            <span>♡</span>
+            <div>
+              Apoyar tus sueños y celebrar cada uno de tus logros como si fueran
+              míos.
+            </div>
+          </div>
+          <div class="promise">
+            <span>♡</span>
+            <div>
+              Seguir creando recuerdos, aventuras y tradiciones que sean
+              solamente nuestras.
+            </div>
+          </div>
+          <div class="promise">
+            <span>♡</span>
+            <div>
+              Respetar nuestro espacio individual y cuidar el equipo que
+              formamos juntos.
+            </div>
+          </div>
+          <div class="promise">
+            <span>♡</span>
+            <div>
+              Elegirte con amor, paciencia y acciones, también en los días
+              complicados.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="eyebrow">Nuestro primer año</div>
+        <h2>Y esto apenas comienza…</h2>
+        <p>
+          Mi Azu, gracias por este primer capítulo. Quiero seguir escribiendo
+          contigo todas las páginas que nos esperan. Te amo, preciosura. ❤️
+        </p>
+        <button class="primary" id="surpriseBtn">
+          Tengo una última sorpresa para ti ♡
+        </button>
+        <div class="surprise-note" id="surpriseNote">
+          ¿Quieres seguir escribiendo esta historia conmigo, mi amor? Porque yo
+          todavía tengo muchísimas páginas, sueños y aventuras que quiero
+          compartir contigo. Te elijo hoy y quiero seguir eligiéndote mañana. ❤️
+        </div>
+        <div style="margin-top: 16px">
+          <button
+            class="soft"
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          >
+            Volver al principio ↑
+          </button>
+        </div>
+      </section>
+      <footer>HECHO CON AMOR · GERARDO & AZU · 2026</footer>
+    </main>
+
+    <audio id="music" loop preload="none">
+      <source src="musica.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music" id="musicBtn" aria-label="Reproducir música">
+      ♫ Música: apagada
+    </button>
+    <div class="modal" id="modal">
+      <button class="close" id="closeModal" aria-label="Cerrar">×</button
+      ><img id="modalImg" alt="Fotografía ampliada" />
+    </div>
+
+    <script>
+      const envelope = document.getElementById("envelope");
+      const openStory = document.getElementById("openStory");
+      const story = document.getElementById("story");
+      const music = document.getElementById("music");
+      const musicBtn = document.getElementById("musicBtn");
+      let opened = false;
+      function reveal() {
+        if (!opened) {
+          opened = true;
+          envelope.classList.add("open");
+        }
+        story.classList.add("visible");
+        setTimeout(() => story.scrollIntoView({ behavior: "smooth" }), 250);
+      }
+      envelope.addEventListener("click", reveal);
+      openStory.addEventListener("click", reveal);
+      musicBtn.addEventListener("click", async () => {
+        if (music.paused) {
+          try {
+            await music.play();
+            musicBtn.textContent = "♫ Música: encendida";
+          } catch (e) {
+            musicBtn.textContent = "Agrega musica.mp3";
+          }
+        } else {
+          music.pause();
+          musicBtn.textContent = "♫ Música: apagada";
+        }
+      });
+      document.querySelectorAll(".photo img").forEach((img) =>
+        img.addEventListener("click", () => {
+          document.getElementById("modalImg").src = img.src;
+          document.getElementById("modal").classList.add("show");
+        }),
+      );
+      document
+        .getElementById("closeModal")
+        .addEventListener("click", () =>
+          document.getElementById("modal").classList.remove("show"),
+        );
+      document.getElementById("modal").addEventListener("click", (e) => {
+        if (e.target.id === "modal") e.currentTarget.classList.remove("show");
+      });
+
+      // Contador desde el inicio de su relación: 11 de diciembre de 2025.
+      const startDate = new Date(2025, 11, 11, 0, 0, 0);
+      function updateCounter() {
+        let diff = Math.max(0, Date.now() - startDate.getTime());
+        const day = 86400000,
+          hour = 3600000,
+          minute = 60000;
+        const days = Math.floor(diff / day);
+        diff %= day;
+        const hours = Math.floor(diff / hour);
+        diff %= hour;
+        const minutes = Math.floor(diff / minute);
+        const seconds =
+          Math.floor((Date.now() - startDate.getTime()) / 1000) % 60;
+        document.getElementById("days").textContent =
+          days.toLocaleString("es-MX");
+        document.getElementById("hours").textContent = String(hours).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("minutes").textContent = String(
+          minutes,
+        ).padStart(2, "0");
+        document.getElementById("seconds").textContent = String(
+          seconds,
+        ).padStart(2, "0");
+      }
+      updateCounter();
+      setInterval(updateCounter, 1000);
+
+      // Carrusel táctil: también se puede deslizar directamente con el dedo.
+      const track = document.getElementById("memoryTrack");
+      const slides = [...track.querySelectorAll(".memory-slide")];
+      const dots = document.getElementById("carouselDots");
+      let currentSlide = 0;
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dots.appendChild(dot);
+      });
+      function goToSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+        [...dots.children].forEach((dot, i) =>
+          dot.classList.toggle("active", i === currentSlide),
+        );
+      }
+      document
+        .getElementById("memoryPrev")
+        .addEventListener("click", () => goToSlide(currentSlide - 1));
+      document
+        .getElementById("memoryNext")
+        .addEventListener("click", () => goToSlide(currentSlide + 1));
+      let scrollTimer;
+      track.addEventListener("scroll", () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const center =
+            track.getBoundingClientRect().left + track.clientWidth / 2;
+          let nearest = 0,
+            dist = Infinity;
+          slides.forEach((slide, i) => {
+            const r = slide.getBoundingClientRect();
+            const d = Math.abs(r.left + r.width / 2 - center);
+            if (d < dist) {
+              dist = d;
+              nearest = i;
+            }
+          });
+          currentSlide = nearest;
+          [...dots.children].forEach((dot, i) =>
+            dot.classList.toggle("active", i === currentSlide),
+          );
+        }, 80);
+      });
+
+      // Sorpresa final con lluvia de corazones.
+      function heartRain() {
+        const layer = document.createElement("div");
+        layer.className = "heart-burst";
+        document.body.appendChild(layer);
+        const symbols = ["♡", "♥", "💕", "💗", "✦"];
+        for (let i = 0; i < 34; i++) {
+          const heart = document.createElement("span");
+          heart.textContent = symbols[i % symbols.length];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.animationDelay = Math.random() * 1.5 + "s";
+          heart.style.fontSize = 14 + Math.random() * 22 + "px";
+          layer.appendChild(heart);
+        }
+        setTimeout(() => layer.remove(), 5600);
+      }
+      document.getElementById("surpriseBtn").addEventListener("click", () => {
+        document.getElementById("surpriseNote").classList.add("show");
+        heartRain();
+        document
+          .getElementById("surpriseNote")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    </script>
+  </body>
+</html>
